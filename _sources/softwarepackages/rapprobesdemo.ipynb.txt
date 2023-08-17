@@ -37,9 +37,7 @@
    "id": "43570eed-c3f1-4625-a108-0f8ee7387d98",
    "metadata": {},
    "source": [
-    "You can download this notebook using the 'Download Notebook' link at the top of the page. If your browser does not allow directly downloading, copy the text from the link into a text file and give it the extension `.ipynb`. From there, you should be able to open it with Jupyter Notebook or Jupyter Lab.\n",
-    "\n",
-    "The Xist FASTA file used in this demo can be downloaded [here.](https://drive.google.com/file/d/1UWJB0szCPhC5kLrhY-aHE4OS4sJIfTiH/view?usp=sharing)"
+    "This notebook at the `xist.fasta` file are available [on Github.](https://github.com/honsonbiosci/rapprobesdemo.git)"
    ]
   },
   {
@@ -93,18 +91,9 @@
   },
   {
    "cell_type": "markdown",
-   "id": "05fb0256-f864-4f94-8af0-9ddbbf67e258",
-   "metadata": {},
-   "source": [
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "6fc3cfa8-ec18-4a2c-b915-6a12ab6fc4af",
    "metadata": {},
    "source": [
-    "<br>\n",
     "The first line of the file contains the gene identity information:"
    ]
   },
@@ -133,19 +122,10 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c2aa15c5-ada5-40cd-a2b9-167b5e100baa",
+   "id": "2fec4aae-d068-4628-876e-d05de5779ab8",
    "metadata": {},
    "source": [
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "35d9de8a-425d-4857-8fb0-f0185f56fcaa",
-   "metadata": {},
-   "source": [
-    "<br>\n",
-    "The final line is a newline:"
+    "The final line is a newline character:"
    ]
   },
   {
@@ -169,14 +149,6 @@
    ],
    "source": [
     "xist[-1]"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "f32bbe9a-1868-4fc6-9f32-bd0e3031a7b0",
-   "metadata": {},
-   "source": [
-    "<br>"
    ]
   },
   {
@@ -221,18 +193,9 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b3d8397e-0fd9-4fe1-a272-50c1eb93ab2b",
-   "metadata": {},
-   "source": [
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "18c9ee52-b6ae-44fd-9360-8f7c52160495",
    "metadata": {},
    "source": [
-    "<br>\n",
     "I am actively editing the FASTA interpreter to be more tolerant of other inputs, but for the time being please use this format for input files."
    ]
   },
@@ -241,7 +204,7 @@
    "id": "b039c658-0244-423a-936d-80b24c5137d3",
    "metadata": {},
    "source": [
-    "## Running `rap_probes()`"
+    "## Running rap_probes()"
    ]
   },
   {
@@ -249,7 +212,7 @@
    "id": "aeb1b002-c27c-4a90-b352-94df91655f94",
    "metadata": {},
    "source": [
-    "After installing the raptools package, `rap_probes()` should be available for import."
+    "After installing the `probe_utils` package, `rap_probes()` should be available for import."
    ]
   },
   {
@@ -271,18 +234,9 @@
   },
   {
    "cell_type": "markdown",
-   "id": "dad577ad-61b0-44af-b716-b27a9dd11781",
-   "metadata": {},
-   "source": [
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "912b6a96-2e60-4fd9-b020-0e844575fbb4",
    "metadata": {},
    "source": [
-    "<br>\n",
     "In this example, we will generate probes for human Xist. Given that Xist is a unique genomic locus, we want to use both BLAT and DFAM to filter out non-specific probes. If targeting a repetitive element (e.g. LINE1) or a multicopy gene (e.g. U1 snRNA), these filters should be turned off.\n",
     "\n",
     "The genome BLAT queries is specified by the keyword argument 'genome', and the species DFAM searches is determined by the keyword argument 'species'. Refer to the current builds of the two databases to determine which genomes and species are supported. "
@@ -303,18 +257,9 @@
   },
   {
    "cell_type": "markdown",
-   "id": "fdc729fc-ea21-475d-acb4-fcec18123511",
-   "metadata": {},
-   "source": [
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "b9115b29-67dd-4784-94e5-becd7bfc27d9",
    "metadata": {},
    "source": [
-    "<br>\n",
     "`rap_probes()` currently accepts eight parameters. The following is copied from the function description:\n",
     "\n",
     "    fasta : str\n",
@@ -460,18 +405,9 @@
   },
   {
    "cell_type": "markdown",
-   "id": "fa24ec22-079a-48ca-be35-cb6d1196c5ca",
-   "metadata": {},
-   "source": [
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "3e799edc-46c2-4051-95fe-47c09c27bb96",
    "metadata": {},
    "source": [
-    "<br>\n",
     "We can now see that all the output files have been sent to `HuXist_rapProbesOut/`"
    ]
   },
@@ -504,18 +440,9 @@
   },
   {
    "cell_type": "markdown",
-   "id": "415a8e95-5984-4a12-8a02-5cc5a521b911",
-   "metadata": {},
-   "source": [
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "77449ee1-3003-4a86-bef2-1fb33edb91c2",
    "metadata": {},
    "source": [
-    "<br>\n",
     "We can check how many probes were originally generated, and how many BLAT and DFAM filtered."
    ]
   },
@@ -872,20 +799,11 @@
   },
   {
    "cell_type": "markdown",
-   "id": "09f42289-8518-41f9-b6ce-e2280260897b",
-   "metadata": {},
-   "source": [
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "4561b33b-2a74-485e-b3ec-70a658304878",
    "metadata": {
     "tags": []
    },
    "source": [
-    "<br>\n",
     "DFAM only identified a single probe containing a repetitive element, the hAT transposon MER58C: "
    ]
   },
@@ -952,18 +870,9 @@
   },
   {
    "cell_type": "markdown",
-   "id": "372bdc57-9062-4bc7-a76d-2b02d3063461",
-   "metadata": {},
-   "source": [
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "dbd100e4-f229-4e83-ac8d-ef6737d67a36",
    "metadata": {},
    "source": [
-    "<br>\n",
     "The final probes are located in the file 'HuXist_90ntProbes.csv', but the output of `rap_probes()` let's you explore the file directly without importing it:"
    ]
   },
@@ -1050,18 +959,9 @@
   },
   {
    "cell_type": "markdown",
-   "id": "7bec0cfc-e84f-4054-8304-16c359f2fc20",
-   "metadata": {},
-   "source": [
-    "<br>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "f0f3b587-ad37-4159-8aa5-527e247a85e7",
    "metadata": {},
    "source": [
-    "<br>\n",
     "From here, it is easy to convert the `.csv` file to a format that can be ordered on IDT plates or an array."
    ]
   },

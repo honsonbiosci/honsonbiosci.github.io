@@ -59,7 +59,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Following-This-Demo">Following This Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Input-file">Input file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Running-rap_probes()">Running <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Running-rap_probes()">Running rap_probes()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Computing-Environment">Computing Environment</a></li>
 </ul>
 </li>
@@ -105,8 +105,7 @@ likelihood of this error by removing probes to known selfish elements in a genom
 <p>I typically recommend using at least 50% coverage of the RNA to ensure efficient capture. For protocols where only a specific part of the RNA is of interest (e.g. RAP-MS for the A-repeat of Xist), it may be possible to tile that specific locus. Be advised, however, that we have not systematically tested this and that it is likely sensitive to the extent of RNA fragmentation. Insufficiently fragmented RNA may be difficult to target with probes to a specific subregion.</p>
 <section id="Following-This-Demo">
 <h2>Following This Demo<a class="headerlink" href="#Following-This-Demo" title="Permalink to this heading"></a></h2>
-<p>You can download this notebook using the ‘Download Notebook’ link at the top of the page. If your browser does not allow directly downloading, copy the text from the link into a text file and give it the extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>. From there, you should be able to open it with Jupyter Notebook or Jupyter Lab.</p>
-<p>The Xist FASTA file used in this demo can be downloaded <a class="reference external" href="https://drive.google.com/file/d/1UWJB0szCPhC5kLrhY-aHE4OS4sJIfTiH/view?usp=sharing">here.</a></p>
+<p>This notebook at the <code class="docutils literal notranslate"><span class="pre">xist.fasta</span></code> file are available <a class="reference external" href="https://github.com/honsonbiosci/rapprobesdemo.git">on Github.</a></p>
 </section>
 <section id="Installation">
 <h2>Installation<a class="headerlink" href="#Installation" title="Permalink to this heading"></a></h2>
@@ -144,7 +143,7 @@ likelihood of this error by removing probes to known selfish elements in a genom
 &#39;&gt;NR_001564.2 Homo sapiens X inactive specific transcript (XIST), long non-coding RNA\n&#39;
 </pre></div></div>
 </div>
-<p>The final line is a newline:</p>
+<p>The final line is a newline character:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -191,8 +190,8 @@ likelihood of this error by removing probes to known selfish elements in a genom
 <p>I am actively editing the FASTA interpreter to be more tolerant of other inputs, but for the time being please use this format for input files.</p>
 </section>
 <section id="Running-rap_probes()">
-<h2>Running <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code><a class="headerlink" href="#Running-rap_probes()" title="Permalink to this heading"></a></h2>
-<p>After installing the raptools package, <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> should be available for import.</p>
+<h2>Running rap_probes()<a class="headerlink" href="#Running-rap_probes()" title="Permalink to this heading"></a></h2>
+<p>After installing the <code class="docutils literal notranslate"><span class="pre">probe_utils</span></code> package, <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> should be available for import.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
