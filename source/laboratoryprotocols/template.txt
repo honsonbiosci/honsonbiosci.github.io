@@ -1,0 +1,17 @@
+[Protocol Name]
+================================
+
+
+Buffers and Consumables
+-----------------------
+
+[Step] Protocol
+----------------------------------
+
+Protocol Notes
+--------------
+
+Hazards and Waste Disposal
+--------------------------
+* Consult the Safety Data Sheet for any unfamiliar reagents and comply with local regulations regarding disposal of hazardous waste.
+

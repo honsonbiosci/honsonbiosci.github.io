@@ -1,0 +1,31 @@
+{% extends "!layout.html" %}
+
+{% block footer %}
+  {{ super() }}
+
+  <style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search, .wy-nav-top {
+    background: #658B69;
+  }
+  /* Sidebar background color */
+  .wy-nav-side {
+    background: #d8e3d9;
+  }
+  /* Sidebar text color */
+  .wy-side-nav-search .icon {
+    color: #d8e3d9;
+  }
+  /* Sidebar label color */
+  .wy-menu-vertical .caption-text {
+    color: #658B69; /* Change this to the desired text color */
+  }
+  /* Change text color of specific category */
+  .wy-menu-vertical li,
+  .wy-menu-vertical a {
+    color: #000000; /* Change this to the desired text color */
+  }
+</style>
+}
+{% endblock %}
+

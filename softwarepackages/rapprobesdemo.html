@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAP Probe Generation &mdash; Drew Honson 0.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="What’s My Deal?" href="../aboutme/whoami.html" />
+    <link rel="prev" title="Silane Nucleic Acid Purification" href="../laboratoryprotocols/silane.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Drew Honson
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Laboratory Protocols</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../laboratoryprotocols/dnalibrary.html">DNA Library Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../laboratoryprotocols/rnalibrary.html">RNA Library Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../laboratoryprotocols/rnamini.html">RNA Miniprep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../laboratoryprotocols/silane.html">Silane Nucleic Acid Purification</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software Packages</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RAP Probe Generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Following-This-Demo">Following This Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Input-file">Input file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Running-rap_probes()">Running <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-Environment">Computing Environment</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aboutme/whoami.html">What’s My Deal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aboutme/sitedesign.html">Site Design</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Drew Honson</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RAP Probe Generation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/softwarepackages/rapprobesdemo.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="RAP-Probe-Generation">
+<h1>RAP Probe Generation<a class="headerlink" href="#RAP-Probe-Generation" title="Permalink to this heading"></a></h1>
+<p>This page demonstrates how to generate probe sequences for RNA Antisense Purification (RAP) using the function <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code>. The function divides a fasta file into fragments of a user-specified length, converts them to their reverse complement, and adds any additional sequences (either an adapter sequence or 5’-biotin). Additionally, the function has the option of filtering probes for multimappers using <a class="reference external" href="https://genome.ucsc.edu/cgi-bin/hgBlat">BLAT</a>, and for repetitive elements using
+<a class="reference external" href="https://www.dfam.org/home">DFAM</a>.</p>
+<p>BLAT filtering in <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> ignores multimappers found within the targeted gene. lncRNAs such as Xist and Kcnq1ot1 contain internally repetitive sequences that are found nowhere else in the genome. BLAT will nonetheless identify probes to these regions as multimappers, but all the homologous regions will lie within the intended target. When this situation occurs, <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> ignores the multimapping and keeps the probe.</p>
+<p>That said, lncRNA research is plagued by studies that fail to note known repetitive elements within annotated lncRNAs. For example, say a scientist performs RAP-DNA on a lncRNA containing a SINE element and does not remove SINE sequences from their probes. Genomic alignment will incorrectly indicate that the lncRNA localizes to SINEs genome-wide. In fact, this result is due to antisense purification of nascent SINE RNAs, which are present in the majority of introns. DFAM filtering reduces the
+likelihood of this error by removing probes to known selfish elements in a genome.</p>
+<p>In general, RAP probes should be 60-120nt long. For protocols using heat elution, shorter probes (60-90nt) are preferable as longer probes reduce the efficiency of melting the RNA-DNA hybrid. If eluting with benzonase or another nuclease, longer probes are acceptable.</p>
+<p>I typically recommend using at least 50% coverage of the RNA to ensure efficient capture. For protocols where only a specific part of the RNA is of interest (e.g. RAP-MS for the A-repeat of Xist), it may be possible to tile that specific locus. Be advised, however, that we have not systematically tested this and that it is likely sensitive to the extent of RNA fragmentation. Insufficiently fragmented RNA may be difficult to target with probes to a specific subregion.</p>
+<section id="Following-This-Demo">
+<h2>Following This Demo<a class="headerlink" href="#Following-This-Demo" title="Permalink to this heading"></a></h2>
+<p>You can download this notebook using the ‘Download Notebook’ link at the top of the page. If your browser does not allow directly downloading, copy the text from the link into a text file and give it the extension <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>. From there, you should be able to open it with Jupyter Notebook or Jupyter Lab.</p>
+<p>The Xist FASTA file used in this demo can be downloaded <a class="reference external" href="https://drive.google.com/file/d/1UWJB0szCPhC5kLrhY-aHE4OS4sJIfTiH/view?usp=sharing">here.</a></p>
+</section>
+<section id="Installation">
+<h2>Installation<a class="headerlink" href="#Installation" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> is distributed as part of the <code class="docutils literal notranslate"><span class="pre">probe_utils</span></code> package (at the moment it is the only function, but this will be expanded in time). Installation is simple using pip:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">git+https://github.com/honsonbiosci/probe_utils.git</span></code></p>
+</section>
+<section id="Input-file">
+<h2>Input file<a class="headerlink" href="#Input-file" title="Permalink to this heading"></a></h2>
+<p>Currently, the FASTA interpreter in <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> expects a file formatted as those downloaded from NCBI. These FASTAs begin with a title line starting with ‘&gt;’ and conclude with a newline character ‘<span class="math">\n</span>’.</p>
+<p>To illustrate this, let us look at the human Xist transcript downloaded from NCBI Gene:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xist.fasta&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span>
+    <span class="n">xist</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The first line of the file contains the gene identity information:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&gt;NR_001564.2 Homo sapiens X inactive specific transcript (XIST), long non-coding RNA\n&#39;
+</pre></div></div>
+</div>
+<p>The final line is a newline:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;\n&#39;
+</pre></div></div>
+</div>
+<p>And all the lines in between are sequences separated by newlines:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xist</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;CCTTCAGTTCTTAAAGCGCTGCAATTCGCTGCTGCAGCCATATTTCTTACTCTCTCGGGGCTGGAAGCTT\n&#39;,
+ &#39;CCTGACTGAAGATCTCTCTGCACTTGGGGTTCTTTCTAGAACATTTTCTAGTCCCCCAACACCCTTTATG\n&#39;,
+ &#39;GCGTATTTCTTTAAAAAAATCACCTAAATTCCATAAAATATTTTTTTAAATTCTATACTTTCTCCTAGTG\n&#39;,
+ &#39;TCTTCTTGACACGTCCTCCATATTTTTTTAAAGAAAGTATTTGGAATATTTTGAGGCAATTTTTAATATT\n&#39;,
+ &#39;TAAGGAATTTTTCTTTGGAATCATTTTTGGTTGACATCTCTGTTTTTTGTGGATCAGTTTTTTACTCTTC\n&#39;,
+ &#39;CACTCTCTTTTCTATATTTTGCCCATCGGGGCTGCGGATACCTGGTTTTATTATTTTTTCTTTGCCCAAC\n&#39;,
+ &#39;GGGGCCGTGGATACCTGCCTTTTAATTCTTTTTTATTCGCCCATCGGGGCCGCGGATACCTGCTTTTTAT\n&#39;,
+ &#39;TTTTTTTTCCTTAGCCCATCGGGGTATCGGATACCTGCTGATTCCCTTCCCCTCTGAACCCCCAACACTC\n&#39;,
+ &#39;TGGCCCATCGGGGTGACGGATATCTGCTTTTTAAAAATTTTCTTTTTTTGGCCCATCGGGGCTTCGGATA\n&#39;]
+</pre></div></div>
+</div>
+<p>I am actively editing the FASTA interpreter to be more tolerant of other inputs, but for the time being please use this format for input files.</p>
+</section>
+<section id="Running-rap_probes()">
+<h2>Running <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code><a class="headerlink" href="#Running-rap_probes()" title="Permalink to this heading"></a></h2>
+<p>After installing the raptools package, <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> should be available for import.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Required only for demonstration</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Probe generation</span>
+<span class="kn">from</span> <span class="nn">probe_utils</span> <span class="kn">import</span> <span class="n">rap_probes</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, we will generate probes for human Xist. Given that Xist is a unique genomic locus, we want to use both BLAT and DFAM to filter out non-specific probes. If targeting a repetitive element (e.g. LINE1) or a multicopy gene (e.g. U1 snRNA), these filters should be turned off.</p>
+<p>The genome BLAT queries is specified by the keyword argument ‘genome’, and the species DFAM searches is determined by the keyword argument ‘species’. Refer to the current builds of the two databases to determine which genomes and species are supported.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;genome&#39;</span><span class="p">:</span><span class="s1">&#39;hg38&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;species&#39;</span><span class="p">:</span><span class="s1">&#39;Homo sapiens&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> currently accepts eight parameters. The following is copied from the function description:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fasta : str
+    Path to a fasta file containing the sequence to
+    generate probes against
+
+gene : str
+    The name of the target gene, used to name probes
+    and the output file
+
+adaptseq : str
+    Any nucleotides that should be added to the 5&#39;-end
+    of each probe. These are used for ligating probes
+    to beads or barcodes. By default, the value is set
+    to the first SPRITE barcode. If no adapter is required,
+    set this parameter to &#39;&#39;. Default &#39;CAAGTCA&#39;
+
+probe_length : int
+    The total length of the probe in nucleotides. If
+    an adaptor is used, this length includes the length
+    of the adapter. Default 90
+
+biotin : Bool
+    Whether to add a 5&#39;-biotin to the probes. Formatted
+    for ordering from Integrated DNA Technologies (IDT).
+    Default False
+
+blat : Bool
+    Whether to filter probes for multiple genome matches
+    using UCSC BLAT. If True, the genome assembly name
+    must be supplied to **kwargs. Default True
+
+dfam : Bool
+    Whether to filter probes for transposable elements and
+    tandem repeats using the Institute of Systems Biology&#39;s
+    Dfam database. If True, the species name must be supplied
+    to **kwargs. Default True
+
+**kwargs : dictionary
+
+    genome : str
+        Used for BLAT filtering. Short assembly name for the
+        species genome as listed in BLAT, e.g. &#39;hg38,&#39; &#39;mm39,&#39;
+        or &#39;dm6&#39;
+
+    tolerance : int
+        Used for BLAT filtering. Number of acceptable matches
+        to other genomic loci. Default 25
+
+    species : str
+        DFAM species to check repeats, e.g. &quot;Homo sapiens&quot;,
+        &quot;Mus musculus&quot;, or &quot;Drosophila melanogaster&quot;
+</pre></div>
+</div>
+<p>The function exports a five files into a directory called <code class="docutils literal notranslate"><span class="pre">[gene]</span> <span class="pre">+</span> <span class="pre">_rapProbesOutput/</span></code>. It also returns a Pandas DataFrame with the final probe sequences and names. The full list of files outputted is in the function description:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>output : a Pandas DataFrame
+    A dataframe containing the final probes after filtering
+    steps. Identical to the Probes.csv file
+
+rapProbesLog.out : a text file
+    A text file containing a log of steps taken by the
+    rap_probes function
+
+[gene]_[probe_length]ntProbes.csv : a csv file
+    A csv file containing the final probes. Identical
+    to the Pandas Dataframe ouput
+
+blatFailedProbes.csv : a csv file
+    If performing BLAT filtering, a csv file containing BLAT
+    results for probes that did not pass filters
+
+blatPassedProbes.csv : a csv file
+    If performing BLAT filtering, a csv file containing BLAT
+    results for probes that passed filters
+
+dfamFailedProbes.csv : a csv file
+    If performing Dfam filtering, a csv file containing Dfam
+    results for probes that did not pass filters
+</pre></div>
+</div>
+<p>With all of this understood we are now ready to run the script. Progress messages will appear if running BLAT or DFAM, and a final message (‘Probe generation complete’) will inform you that the script ran successfully.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">rap_probes</span><span class="p">(</span><span class="n">fasta</span> <span class="o">=</span> <span class="s1">&#39;xist.fasta&#39;</span><span class="p">,</span>
+               <span class="n">gene</span> <span class="o">=</span> <span class="s1">&#39;HuXist&#39;</span><span class="p">,</span>
+               <span class="n">adaptseq</span> <span class="o">=</span> <span class="s1">&#39;CAAGTCA&#39;</span><span class="p">,</span>
+               <span class="n">probe_length</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span>
+               <span class="n">biotin</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+               <span class="n">blat</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+               <span class="n">dfam</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+               <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Starting BLAT
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+100%|███████████████████████████████████████████| 10/10 [00:55&lt;00:00,  5.54s/it]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+BLAT Done
+Starting Dfam
+Search submitted successfully.
+DFAM Done
+Probe generation complete
+</pre></div></div>
+</div>
+<p>We can now see that all the output files have been sent to <code class="docutils literal notranslate"><span class="pre">HuXist_rapProbesOut/</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;HuXist_rapProbesOutput/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;HuXist_90ntProbes.csv&#39;,
+ &#39;rapProbesLog.out&#39;,
+ &#39;blatPassedProbes.csv&#39;,
+ &#39;dfamFailedProbes.csv&#39;,
+ &#39;blatFailedProbes.csv&#39;]
+</pre></div></div>
+</div>
+<p>We can check how many probes were originally generated, and how many BLAT and DFAM filtered.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;HuXist_rapProbesOutput/rapProbesLog.out&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Probe Design Log for HuXist
+Original probes generated: 233
+
+BLAT Results
+Identified locus: chrX:73820651-73852753 (-)
+Genome Match: 100.0%
+Probes remaining after BLAT: 137
+
+Dfam Results
+Search submitted successfully
+Dfam search time: 14 seconds
+Probes remaining after Dfam: 136
+
+</pre></div></div>
+</div>
+<p>From this we can see that BLAT correctly identified the Xist locus and that the input file had a 100% match to the hg38 genome. If this match had been lower than 100%, the user would have been asked whether to abort the program or continue.</p>
+<p>Around 60% of probes remain, which should be acceptable for most RAP applications.</p>
+<p>If we are curious about why probes failed, we can look at the probes that failed BLAT and DFAM filtering. In this case, the probe originally named 218 was particularly problematic:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;HuXist_rapProbesOutput/blatFailedProbes.csv&#39;</span><span class="p">)</span>
+
+<span class="n">blat</span><span class="p">[</span><span class="n">blat</span><span class="p">[</span><span class="s1">&#39;qName&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">218</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>matches</th>
+      <th>qName</th>
+      <th>tName</th>
+      <th>tStart</th>
+      <th>tEnd</th>
+      <th>qStarts</th>
+      <th>tStarts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>983</th>
+      <td>83</td>
+      <td>218</td>
+      <td>chrX</td>
+      <td>73821753</td>
+      <td>73821836</td>
+      <td>0</td>
+      <td>73821753</td>
+    </tr>
+    <tr>
+      <th>984</th>
+      <td>40</td>
+      <td>218</td>
+      <td>chr2</td>
+      <td>108652932</td>
+      <td>108653003</td>
+      <td>35,42,57,77</td>
+      <td>108652932,108652940,108652952,108652997</td>
+    </tr>
+    <tr>
+      <th>985</th>
+      <td>29</td>
+      <td>218</td>
+      <td>chr7</td>
+      <td>127736479</td>
+      <td>127736518</td>
+      <td>33,50</td>
+      <td>127736479,127736505</td>
+    </tr>
+    <tr>
+      <th>986</th>
+      <td>29</td>
+      <td>218</td>
+      <td>chr16</td>
+      <td>14040243</td>
+      <td>14040279</td>
+      <td>26,32,49</td>
+      <td>14040243,14040254,14040273</td>
+    </tr>
+    <tr>
+      <th>987</th>
+      <td>28</td>
+      <td>218</td>
+      <td>chr6</td>
+      <td>152466529</td>
+      <td>152466566</td>
+      <td>22,27,35</td>
+      <td>152466529,152466533,152466549</td>
+    </tr>
+    <tr>
+      <th>988</th>
+      <td>27</td>
+      <td>218</td>
+      <td>chr12</td>
+      <td>80656242</td>
+      <td>80656277</td>
+      <td>2,12</td>
+      <td>80656242,80656259</td>
+    </tr>
+    <tr>
+      <th>989</th>
+      <td>26</td>
+      <td>218</td>
+      <td>chr2</td>
+      <td>110474587</td>
+      <td>110474900</td>
+      <td>0,6</td>
+      <td>110474587,110474880</td>
+    </tr>
+    <tr>
+      <th>990</th>
+      <td>26</td>
+      <td>218</td>
+      <td>chr4</td>
+      <td>41387480</td>
+      <td>41387513</td>
+      <td>32,54</td>
+      <td>41387480,41387505</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>24</td>
+      <td>218</td>
+      <td>chr4</td>
+      <td>22061022</td>
+      <td>22061057</td>
+      <td>25,32</td>
+      <td>22061022,22061040</td>
+    </tr>
+    <tr>
+      <th>992</th>
+      <td>24</td>
+      <td>218</td>
+      <td>chr2</td>
+      <td>181947660</td>
+      <td>181947690</td>
+      <td>59,75</td>
+      <td>181947660,181947682</td>
+    </tr>
+    <tr>
+      <th>993</th>
+      <td>24</td>
+      <td>218</td>
+      <td>chr11</td>
+      <td>87347049</td>
+      <td>87347074</td>
+      <td>43</td>
+      <td>87347049</td>
+    </tr>
+    <tr>
+      <th>994</th>
+      <td>23</td>
+      <td>218</td>
+      <td>chrX</td>
+      <td>11420280</td>
+      <td>11420310</td>
+      <td>21,35</td>
+      <td>11420280,11420301</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>22</td>
+      <td>218</td>
+      <td>chr6</td>
+      <td>18851074</td>
+      <td>18851096</td>
+      <td>28</td>
+      <td>18851074</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>22</td>
+      <td>218</td>
+      <td>chrUn_GL000195v1</td>
+      <td>96928</td>
+      <td>96950</td>
+      <td>33</td>
+      <td>96928</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>22</td>
+      <td>218</td>
+      <td>chr21</td>
+      <td>6277553</td>
+      <td>6277575</td>
+      <td>33</td>
+      <td>6277553</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>21</td>
+      <td>218</td>
+      <td>chr7</td>
+      <td>123730795</td>
+      <td>123730816</td>
+      <td>33</td>
+      <td>123730795</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>20</td>
+      <td>218</td>
+      <td>chr3</td>
+      <td>157490812</td>
+      <td>157490832</td>
+      <td>43</td>
+      <td>157490812</td>
+    </tr>
+    <tr>
+      <th>1000</th>
+      <td>20</td>
+      <td>218</td>
+      <td>chr13</td>
+      <td>64330699</td>
+      <td>64330719</td>
+      <td>32</td>
+      <td>64330699</td>
+    </tr>
+    <tr>
+      <th>1001</th>
+      <td>20</td>
+      <td>218</td>
+      <td>chr1</td>
+      <td>107901625</td>
+      <td>107901645</td>
+      <td>21</td>
+      <td>107901625</td>
+    </tr>
+    <tr>
+      <th>1002</th>
+      <td>25</td>
+      <td>218</td>
+      <td>chr14</td>
+      <td>27657732</td>
+      <td>27657762</td>
+      <td>20</td>
+      <td>27657732</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>DFAM only identified a single probe containing a repetitive element, the hAT transposon MER58C:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;HuXist_rapProbesOutput/dfamFailedProbes.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>probe</th>
+      <th>query</th>
+      <th>type</th>
+      <th>e_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>GGTAAGCTATGAACAGCAGGCCAAATCCAATTGGCTCAAAAACTAA...</td>
+      <td>MER58C</td>
+      <td>DNA</td>
+      <td>0.000034</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>The final probes are located in the file ‘HuXist_90ntProbes.csv’, but the output of <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> let’s you explore the file directly without importing it:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Sequence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>HuXist_0</td>
+      <td>CAAGTCAATCTTCAGTCAGGAAGCTTCCAGCCCCGAGAGAGTAAGA...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>HuXist_1</td>
+      <td>CAAGTCATAGGTGATTTTTTTAAAGAAATACGCCATAAAGGGTGTT...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>HuXist_2</td>
+      <td>CAAGTCAAATCTGAACACGCCCTTAGCTTAACTGCAGAGTCATTCT...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>HuXist_3</td>
+      <td>CAAGTCAAAAGGGAGTCCATGAGAAGGTGCCCTTATCTAGTACACA...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>HuXist_4</td>
+      <td>CAAGTCATACTGCAAATGGAGGGTGAGAAGGTAGAACTTTGTTTAA...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>From here, it is easy to convert the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file to a format that can be ordered on IDT plates or an array.</p>
+</section>
+<section id="Computing-Environment">
+<h2>Computing Environment<a class="headerlink" href="#Computing-Environment" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Last updated: 2023-08-16T16:18:30.398832-07:00
+
+Python implementation: CPython
+Python version       : 3.9.17
+IPython version      : 8.12.0
+
+Compiler    : Clang 14.0.6
+OS          : Darwin
+Release     : 22.2.0
+Machine     : x86_64
+Processor   : i386
+CPU cores   : 4
+Architecture: 64bit
+
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../laboratoryprotocols/silane.html" class="btn btn-neutral float-left" title="Silane Nucleic Acid Purification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../aboutme/whoami.html" class="btn btn-neutral float-right" title="What’s My Deal?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Drew Honson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+   
+
+  <style>
+  /* Sidebar header (and topbar for mobile) */
+  .wy-side-nav-search, .wy-nav-top {
+    background: #658B69;
+  }
+  /* Sidebar background color */
+  .wy-nav-side {
+    background: #d8e3d9;
+  }
+  /* Sidebar text color */
+  .wy-side-nav-search .icon {
+    color: #d8e3d9;
+  }
+  /* Sidebar label color */
+  .wy-menu-vertical .caption-text {
+    color: #658B69; /* Change this to the desired text color */
+  }
+  /* Change text color of specific category */
+  .wy-menu-vertical li,
+  .wy-menu-vertical a {
+    color: #000000; /* Change this to the desired text color */
+  }
+</style>
+}
+
+
+</body>
+</html>
