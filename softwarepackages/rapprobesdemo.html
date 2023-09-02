@@ -110,13 +110,13 @@ likelihood of this error by removing probes to known selfish elements in a genom
 </section>
 <section id="Installation">
 <h2>Installation<a class="headerlink" href="#Installation" title="Permalink to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> is distributed as part of the <code class="docutils literal notranslate"><span class="pre">probe_utils</span></code> package (at the moment it is the only function, but this will be expanded in time). Installation is simple using pip:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">git+https://github.com/honsonbiosci/probe_utils.git</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> is distributed as part of the <code class="docutils literal notranslate"><span class="pre">probeutils</span></code> package (at the moment it is the only function, but this will be expanded in time). Installation is simple using pip:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">probeutils</span></code></p>
 </section>
 <section id="Input-file">
 <h2>Input file<a class="headerlink" href="#Input-file" title="Permalink to this heading"></a></h2>
-<p>Currently, the FASTA interpreter in <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> expects a file formatted as those downloaded from NCBI. These FASTAs begin with a title line starting with ‘&gt;’ and conclude with a newline character ‘<span class="math">\n</span>’.</p>
-<p>To illustrate this, let us look at the human Xist transcript downloaded from NCBI Gene:</p>
+<p>The FASTA interpreter in <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> accepts either a file containing only DNA bases and newlines, or a file with one or more FASTA sequences separated by headers beginning with ‘&gt;’. If the file contains multiple sequences, <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> will only generate probes for the first entry.</p>
+<p>For this example, we will use human Xist downloaded from NCBI:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
