@@ -1,0 +1,4 @@
+Outlier Wells Dropped:
+Fus-118S - 1
+
+Samples Removed:

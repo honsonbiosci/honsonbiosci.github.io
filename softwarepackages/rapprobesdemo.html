@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="What’s My Deal?" href="../aboutme/whoami.html" />
-    <link rel="prev" title="Silane Nucleic Acid Purification" href="../laboratoryprotocols/silane.html" /> 
+    <link rel="prev" title="Equipt: qPCR Analysis" href="equiptdemo.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,6 +56,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Software Packages</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="equiptdemo.html">Equipt: qPCR Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equiptdemo.html#Efficiency-Testing">Efficiency Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equiptdemo.html#ΔΔCt-Analysis">ΔΔCt Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="equiptdemo.html#Computing-Environment">Computing Environment</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">RAP Probe Generation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Following-This-Demo">Following This Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Installation">Installation</a></li>
@@ -192,9 +196,9 @@ likelihood of this error by removing probes to known selfish elements in a genom
 </section>
 <section id="Running-rap_probes()">
 <h2>Running rap_probes()<a class="headerlink" href="#Running-rap_probes()" title="Permalink to this heading"></a></h2>
-<p>After installing the <code class="docutils literal notranslate"><span class="pre">probe_utils</span></code> package, <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> should be available for import.</p>
+<p>After installing the <code class="docutils literal notranslate"><span class="pre">probeutils</span></code> package, <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> should be available for import.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Required only for demonstration</span>
@@ -209,7 +213,7 @@ likelihood of this error by removing probes to known selfish elements in a genom
 <p>In this example, we will generate probes for human Xist. Given that Xist is a unique genomic locus, we want to use both BLAT and DFAM to filter out non-specific probes. If targeting a repetitive element (e.g. LINE1) or a multicopy gene (e.g. U1 snRNA), these filters should be turned off.</p>
 <p>The genome BLAT queries is specified by the keyword argument ‘genome’, and the species DFAM searches is determined by the keyword argument ‘species’. Refer to the current builds of the two databases to determine which genomes and species are supported.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;genome&#39;</span><span class="p">:</span><span class="s1">&#39;hg38&#39;</span><span class="p">,</span>
@@ -298,7 +302,7 @@ dfamFailedProbes.csv : a csv file
 </div>
 <p>With all of this understood we are now ready to run the script. Progress messages will appear if running BLAT or DFAM, and a final message (‘Probe generation complete’) will inform you that the script ran successfully.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">rap_probes</span><span class="p">(</span><span class="n">fasta</span> <span class="o">=</span> <span class="s1">&#39;xist.fasta&#39;</span><span class="p">,</span>
@@ -325,7 +329,7 @@ Starting BLAT
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|███████████████████████████████████████████| 10/10 [00:55&lt;00:00,  5.54s/it]
+100%|███████████████████████████████████████████| 10/10 [01:28&lt;00:00,  8.80s/it]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -342,7 +346,7 @@ Probe generation complete
 </div>
 <p>We can now see that all the output files have been sent to <code class="docutils literal notranslate"><span class="pre">HuXist_rapProbesOut/</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;HuXist_rapProbesOutput/&#39;</span><span class="p">)</span>
@@ -350,7 +354,7 @@ Probe generation complete
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -364,7 +368,7 @@ Probe generation complete
 </div>
 <p>We can check how many probes were originally generated, and how many BLAT and DFAM filtered.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;HuXist_rapProbesOutput/rapProbesLog.out&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -387,7 +391,7 @@ Probes remaining after BLAT: 137
 
 Dfam Results
 Search submitted successfully
-Dfam search time: 14 seconds
+Dfam search time: 16 seconds
 Probes remaining after Dfam: 136
 
 </pre></div></div>
@@ -396,7 +400,7 @@ Probes remaining after Dfam: 136
 <p>Around 60% of probes remain, which should be acceptable for most RAP applications.</p>
 <p>If we are curious about why probes failed, we can look at the probes that failed BLAT and DFAM filtering. In this case, the probe originally named 218 was particularly problematic:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;HuXist_rapProbesOutput/blatFailedProbes.csv&#39;</span><span class="p">)</span>
@@ -406,7 +410,7 @@ Probes remaining after Dfam: 136
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -644,7 +648,7 @@ Probes remaining after Dfam: 136
 </div>
 <p>DFAM only identified a single probe containing a repetitive element, the hAT transposon MER58C:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;HuXist_rapProbesOutput/dfamFailedProbes.csv&#39;</span><span class="p">)</span>
@@ -652,7 +656,7 @@ Probes remaining after Dfam: 136
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -694,7 +698,7 @@ Probes remaining after Dfam: 136
 </div>
 <p>The final probes are located in the file ‘HuXist_90ntProbes.csv’, but the output of <code class="docutils literal notranslate"><span class="pre">rap_probes()</span></code> let’s you explore the file directly without importing it:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -702,7 +706,7 @@ Probes remaining after Dfam: 136
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -763,11 +767,11 @@ Probes remaining after Dfam: 136
 <section id="Computing-Environment">
 <h2>Computing Environment<a class="headerlink" href="#Computing-Environment" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
-<span class="o">%</span><span class="k">watermark</span>
+<span class="o">%</span><span class="k">watermark</span> -v -p probe_utils,jupyterlab,os,pandas
 </pre></div>
 </div>
 </div>
@@ -776,19 +780,14 @@ Probes remaining after Dfam: 136
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Last updated: 2023-08-16T16:18:30.398832-07:00
-
 Python implementation: CPython
 Python version       : 3.9.17
 IPython version      : 8.12.0
 
-Compiler    : Clang 14.0.6
-OS          : Darwin
-Release     : 22.2.0
-Machine     : x86_64
-Processor   : i386
-CPU cores   : 4
-Architecture: 64bit
+probe_utils: 1.0.3
+jupyterlab : 3.6.3
+os         : unknown
+pandas     : 2.0.3
 
 </pre></div></div>
 </div>
@@ -799,7 +798,7 @@ Architecture: 64bit
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../laboratoryprotocols/silane.html" class="btn btn-neutral float-left" title="Silane Nucleic Acid Purification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="equiptdemo.html" class="btn btn-neutral float-left" title="Equipt: qPCR Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../aboutme/whoami.html" class="btn btn-neutral float-right" title="What’s My Deal?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

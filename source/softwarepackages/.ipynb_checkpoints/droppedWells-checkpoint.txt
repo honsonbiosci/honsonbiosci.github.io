@@ -1,0 +1,4 @@
+Outlier Wells Dropped:
+mESC total cDNA_160Fus (112734868c1) - 1
+
+Samples Removed:

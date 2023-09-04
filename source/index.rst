@@ -28,8 +28,9 @@ My name is Drew Honson. I am a fifth year graduate student in the laboratory of 
    :maxdepth: 1
    :caption: Software Packages
 
+   softwarepackages/equiptdemo.ipynb
    softwarepackages/rapprobesdemo.ipynb
- 
+    
 .. toctree::
    :maxdepth: 1
    :caption: About

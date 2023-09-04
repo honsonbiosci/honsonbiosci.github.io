@@ -1,0 +1,12 @@
+Probe Design Log for HuXist
+Original probes generated: 233
+
+BLAT Results
+Identified locus: chrX:73820651-73852753 (-)
+Genome Match: 100.0%
+Probes remaining after BLAT: 137
+
+Dfam Results
+Search submitted successfully
+Dfam search time: 16 seconds
+Probes remaining after Dfam: 136
