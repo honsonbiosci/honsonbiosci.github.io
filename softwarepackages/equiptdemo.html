@@ -56,10 +56,12 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Software Packages</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Equipt: qPCR Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Efficiency-Testing">Efficiency Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#ΔΔCt-Analysis">ΔΔCt Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Computing-Environment">Computing Environment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Equipt: qPCR Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Efficiency-Testing">Efficiency Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ΔΔCt-Analysis">ΔΔCt Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-Environment">Computing Environment</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rapprobesdemo.html">RAP Probe Generation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">About</span></p>
@@ -104,9 +106,8 @@ convenient nor reproducible.</p>
 <li><p>Using these standardizations in modules for common qPCR analyses.</p></li>
 </ol>
 <p>Using equipt will make your qPCR analysis mostly painless and entirely reproducible. For full details, see <a class="reference external" href="https://honsonbiosci.github.io/equipt/">equipt’s documentation</a>. Below are some basic examples of equipt’s usage.</p>
-</section>
 <section id="Efficiency-Testing">
-<h1>Efficiency Testing<a class="headerlink" href="#Efficiency-Testing" title="Permalink to this heading"></a></h1>
+<h2>Efficiency Testing<a class="headerlink" href="#Efficiency-Testing" title="Permalink to this heading"></a></h2>
 <p>A necessary task when using qPCR is to determine the efficiency of qPCR primer sets. Equipt’s documentation has a more detailed explanation of primer efficiency and equipt’s functions for efficiecny analysis, but here is a basic example:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -714,7 +715,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <p>The replicate wells are all tightly correlated and the Ct values are reasonable. From this we can conclude that no obvious experiment-specific issues caused the poor efficiency value, and it may be unwise to use this primer.</p>
 </section>
 <section id="ΔΔCt-Analysis">
-<h1>ΔΔCt Analysis<a class="headerlink" href="#ΔΔCt-Analysis" title="Permalink to this heading"></a></h1>
+<h2>ΔΔCt Analysis<a class="headerlink" href="#ΔΔCt-Analysis" title="Permalink to this heading"></a></h2>
 <p>ΔCt and ΔΔCt are common metrics for examining changes in gene expression or enrichment between two samples. Equipt allows for easy calculation of these values with built-in outlier removal and error propagation. In this example, we will look at gene expression of four genes following 24 hours of siRNA treatment.</p>
 <p>As before, we start by importing the data with <code class="docutils literal notranslate"><span class="pre">namer()</span></code>:</p>
 <div class="nbinput docutils container">
@@ -1689,7 +1690,7 @@ roTBs2RqAAAAAElFTkSuQmCC'
 <p>Here, the lowest categorical axis indicates the primer, and the one above it indicates the siRNA. The y-axis represents the fold change over a scramble siRNA control. All four siRNAs show knockdown of their target genes but not the other transcripts examined.</p>
 </section>
 <section id="Computing-Environment">
-<h1>Computing Environment<a class="headerlink" href="#Computing-Environment" title="Permalink to this heading"></a></h1>
+<h2>Computing Environment<a class="headerlink" href="#Computing-Environment" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -1717,6 +1718,7 @@ holoviews : 1.16.2
 
 </pre></div></div>
 </div>
+</section>
 </section>
 
 
