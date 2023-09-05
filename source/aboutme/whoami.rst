@@ -6,7 +6,7 @@ What's My Deal?
    :alt: Drew and Tarot
    :align: center
 
-   *Drew Honson (he/him) and Tarot (cat)*
+   *Drew Honson and Tarot*
 
 I'm a molecular biologist who loves hypothesis-driven research and primarily ends up doing methods development. So it goes. I grew up in Minnesota and had a classical education from elementary to high school. Essentially this means I had stellar humanities and middling science classes. For a long time I wanted to be both a novelist and a scientist. I still love reading, but I haven't written fiction in a long time.
 
