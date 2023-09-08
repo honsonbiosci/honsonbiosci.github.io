@@ -16,17 +16,20 @@ My motivation for creating this site is that I've spent a lot of time optimizing
 
 For now, I'm finishing up my PhD studying the roles of auxiliary U1 snRNP binding factors in regulating transcription. I live in Los Angeles with my fiancée Natalie and my cat Tarot.  
 
-## Contact 
+Contact
+------- 
 
 .. |orcid| image:: ../images/orcid.png
    :height: 2ex
+   :target: https://orcid.org/0000-0002-4654-8974
 
 .. |scholar| image:: ../images/googlescholar.png
    :height: 2ex
+   :target: https://scholar.google.com/citations?user=qCEM17YAAAAJ&hl=en
 
 ``honsonbiosci AT gmail DOT com``
 
-`|orcid| Orcid <https://orcid.org/0000-0002-4654-8974>`_
+|orcid| `Orcid <https://orcid.org/0000-0002-4654-8974>`_
 
-`|scholar| Google Scholar <https://scholar.google.com/citations?user=qCEM17YAAAAJ&hl=en>`_
+|scholar| `Google Scholar <https://scholar.google.com/citations?user=qCEM17YAAAAJ&hl=en>`_
 
