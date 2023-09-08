@@ -15,3 +15,8 @@ I spent a lot of time in the woods as a kid, and every year my dad would take me
 My motivation for creating this site is that I've spent a lot of time optimizing common laboratory techniques that are unlikely to be published in as much detail as I can give here. I hope that these pages will help preserve that knowledge for me, and shorten the optimization process for other scientists.
 
 For now, I'm finishing up my PhD studying the roles of auxiliary U1 snRNP binding factors in regulating transcription. I live in Los Angeles with my fiancée Natalie and my cat Tarot.  
+
+Contact: ``honsonbiosci AT gmail DOT com``
+`Orcid <https://orcid.org/0000-0002-4654-8974>`_
+`Google Scholar <https://scholar.google.com/citations?user=qCEM17YAAAAJ&hl=en>`_
+
