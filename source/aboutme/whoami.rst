@@ -20,16 +20,13 @@ Contact
 ------- 
 
 .. |orcid| image:: ../images/orcid.png
-   :height: 2ex
+   :height: 4ex
    :target: https://orcid.org/0000-0002-4654-8974
 
 .. |scholar| image:: ../images/googlescholar.png
-   :height: 2ex
+   :height: 4ex
    :target: https://scholar.google.com/citations?user=qCEM17YAAAAJ&hl=en
 
 ``honsonbiosci AT gmail DOT com``
 
-|orcid| `Orcid <https://orcid.org/0000-0002-4654-8974>`_
-
-|scholar| `Google Scholar <https://scholar.google.com/citations?user=qCEM17YAAAAJ&hl=en>`_
-
+|orcid| |scholar|
